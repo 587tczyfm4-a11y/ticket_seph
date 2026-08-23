@@ -44,21 +44,21 @@ def check_tickets() -> bool:
         browser = p.chromium.launch()
         page = browser.new_page()
         page.goto(RESALE_URL, wait_until="networkidle", timeout=30000)
-        page.wait_for_timeout(5000)
+        page.wait_for_timeout(10000)  # 10 secondes au lieu de 5
         content = page.content()
         browser.close()
 
-    # DEBUG temporaire : affiche un extrait du texte visible dans les logs
     import re
     text_only = re.sub(r"<[^>]+>", " ", content)
     text_only = re.sub(r"\s+", " ", text_only).strip()
-    print("---- CONTENU DE LA PAGE (extrait) ----")
-    print(text_only[:2000])
+    print(f"---- LONGUEUR TOTALE DU TEXTE : {len(text_only)} ----")
+    print("---- DERNIERS 3000 CARACTÈRES (probablement le vrai contenu) ----")
+    print(text_only[-3000:])
     print("---------------------------------------")
 
     ticket_available = NO_TICKET_TEXT not in content
     return ticket_available
-
+   
 def main():
     try:
         available = check_tickets()
