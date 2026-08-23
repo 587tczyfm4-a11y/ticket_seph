@@ -17,7 +17,7 @@ from playwright.sync_api import sync_playwright
 RESALE_URL = "https://widget.weezevent.com/ticket/resale-sephoria-london-2026?locale=fr-fr"
 
 # À ajuster après inspection manuelle de la page (voir note ci-dessus)
-NO_TICKET_TEXT = "Aucun billet"
+NO_TICKET_TEXT = "Tickets are unavailable at the moment"
 
 TELEGRAM_TOKEN = os.environ.get("TELEGRAM_TOKEN")
 TELEGRAM_CHAT_ID = os.environ.get("TELEGRAM_CHAT_ID")
