@@ -1,10 +1,7 @@
 name: Check SEPHORiA resale tickets
  
 on:
-  schedule:
-    # Toutes les 5 minutes (GitHub Actions ne garantit pas la précision exacte)
-    - cron: "*/5 * * * *"
-  workflow_dispatch: {}  # permet de lancer manuellement depuis l'onglet Actions
+  workflow_dispatch: {}  # déclenché toutes les minutes par cron-job.org (voir README)
  
 jobs:
   check:
